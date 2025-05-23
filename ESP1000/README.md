@@ -1,112 +1,252 @@
-# ESP1000-dat Documentation
+ESP1000-dat
+This documentation is sourced from https://w2.electrodragon.com/Board-dat/ESP/ESP1000-dat/ESP1000-dat.md. For accurate and complete information, including images, please refer to the original website.
+Navigation
 
-## Overview
+Breadcrumb: Board-dat > ESP
+Links:
+Home
+Overview
+Latest Changes
+History
 
-Module based on [SCM1030-dat](/Board-dat/SCM/SCM1030-dat/SCM1030-dat.md)
 
----
 
-## All-in-One Pin Map
+Content
+Module based on SCM1030-dat.
+All in one Pin Map
 
-| ESP32 L\_Pin | ESP32\_CAM | tori      | ESP32 M\_Pin | ESP32\_CAM | tori    | ESP32 R\_Pin | ESP32\_CAM     | tori |
-| ------------ | ---------- | --------- | ------------ | ---------- | ------- | ------------ | -------------- | ---- |
-| GND          |            |           | GND2         |            |         | GND          |                |      |
-| 3V3          |            |           | 13           | microSD    | SCL     | 23           | CAM            |      |
-| EN           |            |           | SD2          | PSRAM      |         | 22           | CAM            |      |
-| 36           | CAM        |           | SD3          | PSRAM      |         | TXD0         |                |      |
-| 39           | CAM        |           | CMD          |            |         | RXD0         |                | PIR  |
-| 34           | CAM        |           | CLK          |            |         | 21           | CAM            |      |
-| 35           | CAM        |           | SD0          | PSRAM      |         | –            |                |      |
-| 32           | CAM\_PWR   |           | SD1          | PSRAM      |         | 19           | CAM            |      |
-| 33           |            |           | 15           | microSD    | SDA     | 18           | CAM            |      |
-| 25           |            |           | 2            | microSD    | I2S\_WS | 5            | CAM            |      |
-| 26           | CAM        |           |              |            |         | 17           | PSRAM          |      |
-| 27           | CAM        |           |              |            |         | 16           | PSRAM          |      |
-| 14           | microSD    | I2S\_SD   |              |            |         | 4            | microSD, flash |      |
-| 12           | microSD    | I2S\_SCLK |              |            |         | 0            | CAM            |      |
 
----
 
-## Board Map
+ESP32 L_Pin
+ESP32_CAM
+tori
+ESP32 M_Pin
+ESP32_CAM
+tori
+ESP32 R_Pin
+ESP32_CAM
+tori
 
-![Board Map](2025-02-21-14-53-56.png)
 
----
 
-## Programming Note
+GND
 
-* Purple box jumper must be disconnected for enabling RXD0, otherwise used by PIR sensor
-* Connect purple box by a jumper to enter into programming mode
 
-## More Jumpers Note
+GND2
 
-* **GND3**: disconnect pin from GND due to issue on SCM1030-dat board V1701
-* **USB-5V**: sets USB power supply, default ON
-* **JP3**: sets PIR sensor power supply to 3.3V (recommended over 2.5V)
 
----
+GND
 
-## Power Supply
 
-### Version 1.1
 
-* Simplified Power Supply
-* Connect [serial-dat](/Tech-dat/Interface-dat/Serial-dat/Serial-dat.md) 5V / GND / TXD / RXD to use
-* [lithium-battery-dat](/Tech-dat/power-dat/battery-dat/battery-rechargerable-dat/lithium-battery-dat/lithium-battery-dat.md) can be charged by USB or serial-dat
 
-### Version 1.0
+3V3
 
-* Top-left green box powers ESP32 only
-* Use lithium battery + USB Cable or USB-TTL debug supply to power sensors while debugging
 
-![Power 1](2025-02-21-14-58-48.png)
-![Power 2](2025-02-21-14-59-03.png)
+13
+microSD
+SCL
+23
+CAM
 
----
 
-## ESP32-CAM Version Note
 
-* Fixed by jumper in version 1.1
-* V1701 version GND3 issue: bend or cut pin off per [SCM1030-dat](/Board-dat/SCM/SCM1030-dat/SCM1030-dat.md)
+EN
 
----
 
-## In Use
+SD2
+PSRAM
 
-* [I2S-dat](/Tech-dat/Interface-dat/I2S-dat/I2S-dat.md) - [I2S-microphone-dat](/Tech-dat/Interface-dat/I2S-dat/I2S-microphone-dat/I2S-microphone-dat.md)
-* [PIR-sensor-dat](/Tech-dat/Sensor-dat/Motion-sensor-dat/PIR-sensor-dat/PIR-sensor-dat.md) - [OLED-dat](/Tech-dat/interactive-dat/display-dat/OLED-dat/OLED-dat.md)
-* [sensor-dat](/Tech-dat/Sensor-dat/sensor-dat.md) - [I2C-dat](/Tech-dat/Interface-dat/I2C-dat/I2C-dat.md) - [BME280-dat](/Chip-dat/bosch-dat/BME280-dat/BME280-dat.md), [BMP280-dat](/Chip-dat/bosch-dat/BMP280-dat/BMP280-dat.md)
-* Solar charge and battery: [BAT1002-dat](/Board-dat/BAT/BAT1002-dat/BAT1002-dat.md)
-* [consonance-dat](/Chip-cn-dat/CONSONANCE-dat/CONSONANCE-dat.md), [solar-power-dat](/Tech-dat/power-dat/solar-power-dat/solar-power-dat.md), [battery-dat](/Tech-dat/power-dat/battery-dat/battery-dat.md), [ESP32-dat](/Chip-cn-dat/Espressif-dat/ESP32-chip-dat/ESP32-dat.md)
+22
+CAM
 
----
 
-## Not In Use
 
-* [SD-dat](/Tech-dat/memory-dat/sd-dat/sd-dat.md) - [IP5306-dat](/Chip-cn-dat/injoinic-dat/IP5306-dat/IP5306-dat.md)
+36
+CAM
 
----
+SD3
+PSRAM
 
-## Demo Code
+TXD0
 
-* BSP/ESP/ESP1000-ESP32-tori @ [GitHub Repo](https://github.com/Edragon/Arduino-ESP32)
 
-### Tests
 
-* **T1**:
 
-  * T1.1-BMP280-PIR-OLED.ino
-  * T1-all-test.ino: tests BMP280, SSD1306 OLED, PIR sensor
-* **T2**:
+39
+CAM
 
-  * T2-CameraWebServer.ino: camera test (official code)
-* **T3**:
+CMD
 
-  * T3-I2S-mem-mic.ino: tests [I2S-microphone-dat](/Tech-dat/Interface-dat/I2S-dat/I2S-microphone-dat/I2S-microphone-dat.md)
 
-### Pin Definitions
+RXD0
 
-```cpp
+PIR
+
+
+34
+CAM
+
+CLK
+
+
+21
+CAM
+
+
+
+35
+CAM
+
+SD0
+PSRAM
+
+–
+
+
+
+
+32
+CAM_PWR
+
+SD1
+PSRAM
+
+19
+CAM
+
+
+
+33
+
+
+15
+microSD
+SDA
+18
+CAM
+
+
+
+25
+
+
+2
+microSD
+I2S_WS
+5
+CAM
+
+
+
+26
+CAM
+
+
+
+
+17
+PSRAM
+
+
+
+27
+CAM
+
+
+
+
+16
+PSRAM
+
+
+
+14
+microSD
+I2S_SD
+
+
+
+4
+microSD, flash
+
+
+
+12
+microSD
+I2S_SCLK
+
+
+
+0
+CAM
+
+
+
+Board Map
+Placeholder for board map image. Refer to the original website for the actual image.
+Programming Note
+
+Purple box jumper must be disconnected for enabling RXD0, otherwise used by PIR sensor.
+Connect purple box by a jumper to enter into programming mode.
+
+More Jumpers Note
+
+"GND3" - Disconnect pin from GND, due to a problem on SCM1030-dat board V1701, default does not connect.
+"USB-5V" - Set USB power supply, default ON, simplified the power supply, see section below.
+"JP3" - Set PIR sensor power supply to 3.3V, could be better to do at 2.5V.
+
+Power Supply
+Version 1.1
+
+Simplified Power Supply, connect serial-dat 5V / GND / TXD / RXD to use, lithium-battery-dat can be charged by USB cable or serial-dat.
+
+Version 1.0
+
+Top-left green box will be used for power ESP32 ONLY, not for this base board.
+To use this base board sensors while debugging, please use:
+Lithium battery + USB Cable
+USB-TTL debug power supply + USB Cable
+
+
+
+Placeholder for power supply image 1. Refer to the original website for the actual image.
+Placeholder for power supply image 2. Refer to the original website for the actual image.
+ESP32-CAM Version Note
+
+Fixed by jumper in version 1.1.
+Version V1701 GND3 is not working, please read at SCM1030-dat, just bend this pin or cut it off to leave it.
+
+In Use
+
+I2S-dat - I2S-microphone-dat
+PIR-sensor-dat - OLED-dat
+sensor-dat - I2C-dat - BME280-dat - BMP280-dat
+
+Solar charge and battery function please refer to BAT1002-dat.
+
+consonance-dat - solar-power-dat - battery-dat - lithium-ion-battery-dat
+ESP32-dat - SCM1030-dat
+
+Not in Use
+
+SD-dat - IP5306-dat
+
+Demo Code
+
+BSP/ESP/ESP1000-ESP32-tori @ https://github.com/Edragon/Arduino-ESP32
+
+Code Test:
+
+T1:
+T1.1-BMP280-PIR-OLED.ino
+T1-all-test.ino == test for BMP280, SSD1306 OLED, PIR sensor
+
+
+T2: T2-CameraWebServer.ino == Camera test please use official code
+T3: T3-I2S-mem-mic.ino == test for I2S-microphone-dat
+
+Pin Definitions:
 #define I2S_WS 02
 #define I2S_SD 14
 #define I2S_SCK 12
@@ -115,20 +255,33 @@ BMx280I2C bmx280(0x76);
 
 #define flash 4
 #define PIR 3
-```
 
----
+Demo Video
 
-## Demo Video
+Default camera log, powered by battery
+I2S camera sound detect
+PIR sensor detector
+I2S sound test 2
 
-* [Default camera log, powered by battery](https://x.com/electro_phoenix/status/1881569671020949656)
-* [I2S camera sound detect](https://x.com/electro_phoenix/status/1877590478109159437)
-* [PIR sensor detector](https://x.com/electro_phoenix/status/1877256534687650008)
-* [I2S sound test 2](https://t.me/electrodragon3/349)
+Ref
 
----
+ESP1000 - PIR-sensor
 
-## References
+Table of Contents
 
-* [ESP32-dat](/Chip-cn-dat/Espressif-dat/ESP32-chip-dat/ESP32-dat.md)
-* [SCM1030-dat](/Board-dat/SCM/SCM1030-dat/SCM1030-dat.md)
+All in one Pin Map
+Board Map
+Programming Note
+More Jumpers Note
+Power Supply
+ESP32-CAM Version Note
+
+
+In Use
+Not in Use
+Demo Code
+Demo Video
+Ref
+
+Footer
+Last modified information is not available in this markdown replica. Refer to the original website for page history.
