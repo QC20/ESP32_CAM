@@ -25,7 +25,7 @@ Module based on [SCM1030-dat](/Board-dat/SCM/SCM1030-dat/SCM1030-dat.md)
 
 ## Board Map
 
-![Board Map](2025-02-21-14-53-56.png)
+![Board Map](src/assets/img/ESP1000-Board-map.png)
 
 ### Programming Note
 
@@ -53,8 +53,8 @@ Module based on [SCM1030-dat](/Board-dat/SCM/SCM1030-dat/SCM1030-dat.md)
   * Lithium battery + USB cable
   * USB-TTL debug power supply + USB cable
 
-![Power Image 1](2025-02-21-14-58-48.png)
-![Power Image 2](2025-02-21-14-59-03.png)
+![Power Image 1](src/assets/img/ESP1000-Power-Supply-1.png)
+![Power Image 2](src/assets/img/ESP1000-Power-Supply-2.png)
 
 ### ESP32-CAM Version Note
 
